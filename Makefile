@@ -32,3 +32,14 @@ clear:
 clear-win:
 	rm -rf ./build/exe/*
 
+
+run-client: build-client
+	./build/bin/$(SER)-client
+
+
+build-client: clear-client
+	go build ${LDFLAGS} -o ./build/bin/$(SER)-client ./client/main.go
+
+
+clear-client:
+	rm -rf ./build/bin/$(SER)-client
