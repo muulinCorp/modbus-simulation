@@ -12,8 +12,8 @@ import (
 )
 
 var (
-	v = flag.Bool("v", false, "version")
-
+	v         = flag.Bool("v", false, "version")
+	isDev     = flag.Bool("dev", false, "dev mode")
 	Version   = "1.0.0"
 	BuildTime = "2000-01-01T00:00:00+0800"
 )
@@ -25,7 +25,7 @@ func main() {
 		fmt.Println(Version)
 		return
 	}
-
+	_ = isDev
 	serv := mbserver.NewServer()
 	serv.RegisterFunctionHandler(3,
 		func(s *mbserver.Server, frame mbserver.Framer) ([]byte, *mbserver.Exception) {

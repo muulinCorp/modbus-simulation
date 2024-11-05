@@ -1,0 +1,11 @@
+services:
+  mbslave:
+    image: 94peter/golang-daemon:1.21
+    env_file:
+    - ./.env.${ENV}
+    volumes:
+    - ../:/app
+    networks:
+    - muulin-scada
+
+    
